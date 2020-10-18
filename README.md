@@ -1,13 +1,19 @@
-# Laravel Package to paginate any collection
+# Collection Paginator
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/acadea/collection-paginator.svg?style=flat-square)](https://packagist.org/packages/acadea/collection-paginator)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/acadea/collection-paginator/run-tests?label=tests)](https://github.com/acadea/collection-paginator/actions?query=workflow%3Arun-tests+branch%3Amaster)
 [![Total Downloads](https://img.shields.io/packagist/dt/acadea/collection-paginator.svg?style=flat-square)](https://packagist.org/packages/acadea/collection-paginator)
 
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+A helper package to paginate Laravel collections. 
 
-## Support us
+## About
+
+Learn the idea behind this package: 
+* Read on my [Medium blog: How to ](https://medium.com/@sam_ngu/laravel-how-to-paginate-collection-8cb4b281bc55)
+* or watch it on [Youtube](https://www.youtube.com/watch?v=eGEa9W6r3Zg)
+
+Follow us on Youtube: [Acadea.io](https://www.youtube.com/channel/UCU5RsUGkVcPM9QvFHyKm1OQ)
 
 
 ## Installation
@@ -18,30 +24,41 @@ You can install the package via composer:
 composer require acadea/collection-paginator
 ```
 
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --provider="Acadea\CollectionPaginator\CollectionPaginatorServiceProvider" --tag="migrations"
-php artisan migrate
-```
-
-You can publish the config file with:
-```bash
-php artisan vendor:publish --provider="Acadea\CollectionPaginator\CollectionPaginatorServiceProvider" --tag="config"
-```
-
-This is the contents of the published config file:
-
-```php
-return [
-];
-```
-
 ## Usage
 
-``` php
-$collection-paginator = new Acadea\CollectionPaginator();
-echo $collection-paginator->echoPhrase('Hello, Acadea!');
+```php
+$collection = [1,2,3,4,5,6,7,8];
+$pageSize = 4;
+$paginated = \Acadea\CollectionPaginator\CollectionPaginator::paginate($collection, $pageSize);
+dump($paginated);
+```
+
+Expects: 
+```
+Illuminate\Pagination\LengthAwarePaginator {#296
+  #total: 8
+  #lastPage: 2
+  #items: Illuminate\Support\Collection {#288
+    #items: array:4 [
+      0 => 1
+      1 => 2
+      2 => 3
+      3 => 4
+    ]
+  }
+  #perPage: 4
+  #currentPage: 1
+  #path: "http://localhost"
+  #query: []
+  #fragment: null
+  #pageName: "page"
+  +onEachSide: 3
+  #options: array:2 [
+    "path" => "http://localhost"
+    "pageName" => "page"
+  ]
+}
+
 ```
 
 ## Testing
