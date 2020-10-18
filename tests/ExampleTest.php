@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Skeleton\Tests;
+namespace Acadea\CollectionPaginator\Tests;
 
 class ExampleTest extends TestCase
 {

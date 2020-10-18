@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\Skeleton\Commands;
+namespace Acadea\CollectionPaginator\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class CollectionPaginatorCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'collection-paginator';
 
     public $description = 'My command';
 

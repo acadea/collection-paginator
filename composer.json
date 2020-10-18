@@ -1,17 +1,17 @@
 {
-    "name": ":vendor_name/:package_name",
-    "description": ":package_description",
+    "name": "acadea/collection-paginator",
+    "description": "Laravel Package to paginate any collection",
     "keywords": [
-        ":vendor_name",
-        ":package_name"
+        "acadea",
+        "collection-paginator"
     ],
-    "homepage": "https://github.com/:vendor_name/:package_name",
+    "homepage": "https://github.com/acadea/collection-paginator",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": ":author_email",
-            "homepage": "https://spatie.be",
+            "name": "sam-ngu",
+            "email": "opensource@acadea.io",
+            "homepage": "https://www.acadea.io",
             "role": "Developer"
         }
     ],
@@ -27,13 +27,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\Skeleton\\": "src",
-            "Spatie\\Skeleton\\Database\\Factories\\": "database/factories"
+            "Acadea\\CollectionPaginator\\": "src",
+            "Acadea\\CollectionPaginator\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spatie\\Skeleton\\Tests\\": "tests"
+            "Acadea\\CollectionPaginator\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -48,10 +48,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Spatie\\Skeleton\\SkeletonServiceProvider"
+                "Acadea\\CollectionPaginator\\CollectionPaginatorServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "Spatie\\Skeleton\\SkeletonFacade"
+                "CollectionPaginator": "Acadea\\CollectionPaginator\\CollectionPaginatorFacade"
             }
         }
     },
