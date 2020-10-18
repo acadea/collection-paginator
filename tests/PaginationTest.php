@@ -19,5 +19,6 @@ class PaginationTest extends TestCase
         $this->assertEquals(ceil($collection->count() / $pageSize), $paginated->lastPage());
 
         $this->assertEquals($pageSize, $paginated->perPage());
+
     }
 }

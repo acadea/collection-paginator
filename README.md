@@ -10,7 +10,7 @@ A helper package to paginate Laravel collections.
 ## About
 
 Learn the idea behind this package: 
-* Read on my [Medium blog: How to ](https://medium.com/@sam_ngu/laravel-how-to-paginate-collection-8cb4b281bc55)
+* Read on my [Medium blog: How to Paginate Collection](https://medium.com/@sam_ngu/laravel-how-to-paginate-collection-8cb4b281bc55)
 * or watch it on [Youtube](https://www.youtube.com/watch?v=eGEa9W6r3Zg)
 
 Follow us on Youtube: [Acadea.io](https://www.youtube.com/channel/UCU5RsUGkVcPM9QvFHyKm1OQ)
@@ -27,38 +27,62 @@ composer require acadea/collection-paginator
 ## Usage
 
 ```php
-$collection = [1,2,3,4,5,6,7,8];
+$collection = collect([1,2,3,4,5,6,7,8]);
+
 $pageSize = 4;
+
 $paginated = \Acadea\CollectionPaginator\CollectionPaginator::paginate($collection, $pageSize);
-dump($paginated);
+
+// ..
+
+// in resource controller, returning as an api response
+return new \Illuminate\Http\JsonResponse($paginated);
+
 ```
 
 Expects: 
-```
-Illuminate\Pagination\LengthAwarePaginator {#296
-  #total: 8
-  #lastPage: 2
-  #items: Illuminate\Support\Collection {#288
-    #items: array:4 [
-      0 => 1
-      1 => 2
-      2 => 3
-      3 => 4
-    ]
-  }
-  #perPage: 4
-  #currentPage: 1
-  #path: "http://localhost"
-  #query: []
-  #fragment: null
-  #pageName: "page"
-  +onEachSide: 3
-  #options: array:2 [
-    "path" => "http://localhost"
-    "pageName" => "page"
-  ]
+```json
+{
+    "current_page": 1,
+    "data": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "first_page_url": "http://localhost:8000/api/fruits?page=1",
+    "from": 1,
+    "last_page": 2,
+    "last_page_url": "http://localhost:8000/api/fruits?page=2",
+    "links": [
+        {
+            "url": null,
+            "label": "Previous",
+            "active": false
+        },
+        {
+            "url": "http://localhost:8000/api/fruits?page=1",
+            "label": 1,
+            "active": true
+        },
+        {
+            "url": "http://localhost:8000/api/fruits?page=2",
+            "label": 2,
+            "active": false
+        },
+        {
+            "url": "http://localhost:8000/api/fruits?page=2",
+            "label": "Next",
+            "active": false
+        }
+    ],
+    "next_page_url": "http://localhost:8000/api/fruits?page=2",
+    "path": "http://localhost:8000/api/fruits",
+    "per_page": 4,
+    "prev_page_url": null,
+    "to": 4,
+    "total": 8
 }
-
 ```
 
 ## Testing
