@@ -9,7 +9,6 @@ use Illuminate\Support\Collection;
 
 class CollectionPaginator
 {
-
     public static function paginate(Collection $collection, $pageSize)
     {
         $page = Paginator::resolveCurrentPage('page');
@@ -42,5 +41,4 @@ class CollectionPaginator
             'options'
         ));
     }
-
 }

@@ -2,9 +2,9 @@
 
 namespace Acadea\CollectionPaginator\Tests;
 
+use Acadea\CollectionPaginator\CollectionPaginatorServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Acadea\CollectionPaginator\CollectionPaginatorServiceProvider;
 
 class TestCase extends Orchestra
 {
