@@ -32,13 +32,12 @@ class PaginationTest extends TestCase
 
         // supply page query param to request
         $request->merge([
-            'page' => '2'
+            'page' => '2',
         ]);
 
         $paginated = CollectionPaginator::paginate($collection, $pageSize);
 
-        $this->assertSame([5, 6, 7, 8], array_values($paginated->all()) );
-        $this->assertSame([0, 1, 2, 3], array_keys($paginated->all()) );
-
+        $this->assertSame([5, 6, 7, 8], array_values($paginated->all()));
+        $this->assertSame([0, 1, 2, 3], array_keys($paginated->all()));
     }
 }
